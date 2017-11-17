@@ -1,0 +1,27 @@
+﻿.background {
+    background-image: url("../../Images/bach-ritterburg-1588647_1920.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
+    position:absolute;
+}
+
+.scrollcontainer{
+    background-color:rgba(255,255,255,0.7);
+    height:300px;
+    overflow-y:scroll;
+}
+
+.scrollcontainer .list-group-item{
+    background-color:rgba(255,255,255,0.0);
+}
+
+.sm-pd{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.no-pd{
+    padding-left: 0px;
+    padding-right: 0px;
+}
