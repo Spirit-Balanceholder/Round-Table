@@ -5,6 +5,29 @@
 });
 
 $(function () {
+
+    var tasksdone = 0;
+
+    // Declare a proxy to reference the hub.
+    var Global = $.connection.globalHub;
+    // Create a function that the hub can call to broadcast messages.
+    Global.client.setHostName = function (hostname) {
+        $('.hostname').append(hostname);
+        tasksdone++;
+        IsPageReady();
+    };
+    Global.client.setServerName = function (servername) {
+        $('.servername').append(servername);
+        tasksdone++;
+        IsPageReady();
+    };
+
+    // Start the connection.
+    $.connection.hub.start().done(function () {
+        Global.server.getServerName();
+        Global.server.getHostName();
+    });
+
     // Declare a proxy to reference the hub.
     var chat = $.connection.chatHub;
     // Create a function that the hub can call to broadcast messages.
@@ -18,6 +41,8 @@ $(function () {
     };
     // Get the user name and store it to prepend to messages.
     $('#displayname').val(prompt('Enter your name:', ''));
+    tasksdone++;
+    IsPageReady();
     // Set initial focus to message input box.
     $('#message').focus();
     // Start the connection.
@@ -29,4 +54,9 @@ $(function () {
             $('#message').val('').focus();
         });
     });
+
+    function IsPageReady () {
+        if (tasksdone >= 3)
+            $('#curtain').css("display", "none");
+    }
 });
