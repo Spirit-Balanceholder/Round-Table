@@ -18,10 +18,12 @@ namespace RoundTableAPI
             Clients.Caller.setHostName("Spirit");
         }
 
-        public void EnterLobby(string password)
+        public void CheckPassword(string password)
         {
             if (password == "cheeze")
-                Clients.Caller.Redirect("/Client/html/Index.html");
+                Clients.Caller.loginResponse(true);
+            else
+                Clients.Caller.loginResponse(false);
         }
     }
 }

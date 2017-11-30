@@ -14,14 +14,23 @@
         <div class="col-md-6 fancy">
             <h1>Stop!</h1>
             <p>Who would cross the bridge of death must answer me these questions three!<br />Ere the other side he see!</p>
-            <form>
+            <form id="loginform">
                 <span>What is your name?</span>
-                <input class="form-control" placeholder="Sir Lancelot of Kamelot" type="text" id="message" />
+
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="DDKnownUserList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Previous Users
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="KnownUserList" class="dropdown-menu" aria-labelledby="DDKnownUserList">
+                    </ul>
+                </div>
+                <input class="form-control" placeholder="Sir Lancelot of Kamelot" type="text" id="name" />
                 <span>What is your quest?</span>
-                <input class="form-control" placeholder="To seek the holy grail" type="text" id="message" />
+                <input class="form-control" placeholder="To seek the holy grail" type="text" id="quest" />
                 <span>What is the password to this room?</span>
-                <input class="form-control" placeholder="I don't know that!" type="password" id="message" />
-                <input class="btn btn-default" type="submit" id="sendmessage" value="Cross the bridge" />
+                <input class="form-control" placeholder="I don't know that!" type="password" id="password" />
+                <input class="btn btn-default" type="button" id="submit" value="Cross the bridge" />
             </form>
         </div>
     </div>
